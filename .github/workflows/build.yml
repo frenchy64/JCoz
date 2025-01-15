@@ -18,6 +18,7 @@ jobs:
     - uses: actions/checkout@v4
     - uses: actions/setup-java@v4
       with:
+        cache: maven
         distribution: ${{ ( matrix.os == 'macos-latest' && matrix.java == '8' ) && 'zulu' || 'temurin' }}
         java-version: ${{ matrix.java }}
     - if: ${{ matrix.os == 'ubuntu-latest' }}
