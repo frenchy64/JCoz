@@ -10,8 +10,9 @@ For documentation, including installing, building, and using JCoz, please see ou
  - [spdlog](https://github.com/gabime/spdlog) (`0.11.0` or higher)
    - `apt-get install libspdlog-dev` for debian/ubuntu
    - `yum install spdlog-devel` for fedora/rhel/centos
+   - `brew install spdlog` for macos
  - make
- - jdk 1.8 (newer jdk's will result in a (maven) failure during make all)
+ - jdk 8 or higher
 
 # Getting Started Tutorial
 
@@ -58,8 +59,7 @@ with ps.
 ```
 (3)
 $ CLIENT_JAR=./src/java/target/client-0.0.1-jar-with-dependencies.jar
-$ TOOLS_JAR=/usr/lib/jvm/java-8-openjdk-amd64/lib/tools.jar
-$ java -cp ${CLIENT_JAR}:${TOOLS_JAR} \
+$ java -cp ${CLIENT_JAR} \
     jcoz.client.cli.JCozCLI \
     -c test.TestThreadSerial \
     -l 57 \
