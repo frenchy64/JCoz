@@ -315,8 +315,6 @@ static bool PrepareJvmti(jvmtiEnv *jvmti) {
       (error = jvmti->GetPotentialCapabilities(&all_caps))) {
     // This makes sure that if we need a capability, it is one of the
     // potential capabilities.  The technique isn't wonderful, but it
-    // This makes sure that if we need a capability, it is one of the
-    // potential capabilities.  The technique isn't wonderful, but it
     // is compact and as likely to be compatible between versions as
     // anything else.
     char *has = reinterpret_cast<char *>(&all_caps);

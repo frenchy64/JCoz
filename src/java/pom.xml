@@ -19,12 +19,11 @@
   </properties>
 
   <dependencies>
+    <!-- https://github.com/olivergondza/maven-jdk-tools-wrapper -->
     <dependency>
-      <groupId>com.sun</groupId>
-      <artifactId>tools</artifactId>
-      <version>8</version>
-      <scope>system</scope>
-      <systemPath>${java.home}/../lib/tools.jar</systemPath>
+      <groupId>com.github.olivergondza</groupId>
+      <artifactId>maven-jdk-tools-wrapper</artifactId>
+      <version>0.1</version>
     </dependency>
     <!-- https://mvnrepository.com/artifact/commons-cli/commons-cli -->
     <dependency>

@@ -112,7 +112,7 @@ run-workload:
 
 run-rmi-host:
 	java \
-	  -cp $$(readlink -f ./src/java/target/client-*-jar-with-dependencies.jar):$(JAVA_HOME)/lib/tools.jar \
+	  -cp $$(readlink -f ./src/java/target/client-*-jar-with-dependencies.jar) \
 	  jcoz.service.JCozService
 
 run-profiler:
