@@ -23,15 +23,19 @@ jobs:
         distribution: ${{ ( matrix.os == 'macos-latest' && matrix.java == '8' ) && 'zulu' || 'temurin' }}
         java-version: ${{ matrix.java }}
     - if: ${{ matrix.os == 'ubuntu-latest' }}
-      run: sudo apt-get install libspdlog-dev
-    - if: ${{ matrix.os == 'ubuntu-latest' }}
       run: |
         git clone https://github.com/fmtlib/fmt.git ../fmt
         cd ../fmt
+        git reset --hard 8303d140a1a11f19b982a9f664bbe59a1ccda3f4
         mkdir build
         cd build
         cmake -DCMAKE_POSITION_INDEPENDENT_CODE=TRUE ..
         sudo make install
+    - if: ${{ matrix.os == 'ubuntu-latest' }}
+      run: |
+        git clone https://github.com/gabime/spdlog.git ../spdlog
+        cd ../spdlog && mkdir build && cd build
+        cmake .. && cmake --build .
     - if: ${{ matrix.os == 'macos-latest' }}
       run: brew install spdlog
     - if: ${{ matrix.os == 'windows-latest' }}
