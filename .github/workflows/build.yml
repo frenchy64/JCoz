@@ -24,6 +24,14 @@ jobs:
         java-version: ${{ matrix.java }}
     - if: ${{ matrix.os == 'ubuntu-latest' }}
       run: sudo apt-get install libspdlog-dev
+    - if: ${{ matrix.os == 'ubuntu-latest' }}
+      run: |
+        git clone https://github.com/fmtlib/fmt.git ../fmt
+        cd ../fmt
+        mkdir build
+        cd build
+        cmake -DCMAKE_POSITION_INDEPENDENT_CODE=TRUE ..
+        sudo make install
     - if: ${{ matrix.os == 'macos-latest' }}
       run: brew install spdlog
     - if: ${{ matrix.os == 'windows-latest' }}
